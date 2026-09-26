@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Candidate List</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Candidate List</h1>
+
+        <form action="/candidates" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search by name or skill"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+        <p style="text-align:center;">
+            <a href="/">← Upload Another Resume</a>
+        </p>
+
+        {% if candidates %}
+
+            {% for candidate in candidates %}
+
+                <div class="card">
+
+                    <h2>{{ candidate[1] }}</h2>
+
+                    <p>
+                        <strong>Email:</strong>
+                        {{ candidate[2] }}
+                    </p>
+
+                    <p>
+                        <strong>Phone:</strong>
+                        {{ candidate[3] }}
+                    </p>
+
+                    <p>
+                        <strong>Skills:</strong>
+                        {{ candidate[4] }}
+                    </p>
+
+                    <p>
+                        <strong>Education:</strong>
+                        {{ candidate[5] }}
+                    </p>
+
+                    <p>
+                        <strong>Experience:</strong>
+                        {{ candidate[6] }}
+                    </p>
+
+                    <p>
+                        <strong>Resume:</strong>
+                        {{ candidate[7] }}
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="card">
+                <p style="text-align:center;">
+                    No candidates found.
+                </p>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

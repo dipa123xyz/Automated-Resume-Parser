@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Automated Resume Parser</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Automated Resume Parser</h1>
+
+            <p>
+                Upload a PDF resume to automatically extract
+                candidate information and store it in the database.
+            </p>
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf"
+                    required
+                >
+
+                <button type="submit">
+                    Upload Resume
+                </button>
+
+            </form>
+
+            <p style="text-align:center;">
+                <a href="/candidates">View Candidates</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
